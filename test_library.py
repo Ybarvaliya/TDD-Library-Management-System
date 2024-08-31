@@ -1,5 +1,5 @@
 import pytest
-from library import add_book, borrow_book, get_books, add_user, get_users, Book, User
+from library import add_book, borrow_book, get_books, return_book, view_books, add_user, get_users, Book, User
 
 # Test Cases for Adding User
 
@@ -95,3 +95,43 @@ def test_borrow_nonexistent_book():
     """Borrowing a book that does not exist should raise an error"""
     with pytest.raises(ValueError):
         borrow_book("01", "9876")
+
+# Test Cases for returning Book
+
+def test_return_book():
+    """returning a book should be successful"""
+    books_list = get_books()
+    assert return_book("01", "0001")
+    assert books_list[0].availability
+
+def test_return_book_without_userId():
+    """returning a book without userId should raise an error"""
+    with pytest.raises(ValueError):
+        return_book("", "0001")
+
+def test_return_book_without_ISBN():
+    """returning a book without ISBN should raise an error"""
+    with pytest.raises(ValueError):
+        return_book("01", "")
+
+def test_return_unborrowed_book():
+    """returning a book that is not borrowed by the user should raise an error"""
+    with pytest.raises(ValueError):
+        return_book("01", "0002")
+        
+def test_return_nonexistent_book():
+    """returning a book that does not exists should raise an error"""
+    with pytest.raises(ValueError):
+        return_book("01", "9876")
+
+def test_return_nonexistent_user():
+    """user with given userId does not exists should raise an error"""
+    with pytest.raises(ValueError):
+        return_book("05", "9876")
+
+# Test Cases for Viewing available books
+
+def test_get_available_books():
+    available_books = view_books()
+    assert len(available_books) == 1
+    assert available_books[0].title == "The Hitchhiker's Guide to the Galaxy" 

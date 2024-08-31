@@ -90,3 +90,37 @@ def borrow_book(userId, ISBN):
             else:
                 raise ValueError("Book is already borrowed")
     raise ValueError("Book not found")
+
+def return_book(userId, ISBN):
+    """To return the book if borrowed"""
+
+    if not userId or userId == "":
+        raise ValueError("userId is missing")
+    
+    if not ISBN or ISBN == "":
+        raise ValueError("ISBN is missing")
+    
+    user =  None
+
+    for u in users_list:
+        if u.userId == userId:
+            user = u
+
+    if not user:
+        raise ValueError("User does not exist with given userId")
+    
+    for b in user.borrowed_books:
+        if b.ISBN == ISBN:
+            user.borrowed_books.remove(b)
+            for book in books_list:
+                if book.ISBN == ISBN:
+                    book.availability = True
+                    return True
+            raise ValueError("book with given ISBN does not exist in the books list")
+        
+    raise ValueError("User have not borrowed the book with given ISBN")
+ 
+def view_books():
+    """To view available books"""
+    available_books = [book for book in books_list if book.availability]
+    return available_books
