@@ -1,10 +1,10 @@
 import pytest
-from library import add_book, borrow_book, get_books, return_book, view_books, add_user, get_users, Book, User
+from library import add_book, return_book, borrow_book, view_books, get_books, remove_book, add_user, get_users, remove_user, Book, User
 
 # Test Cases for Adding User
 
 def test_add_user():
-    """Adding a user should be successful"""
+    """Adding a user with all valid details should be successful"""
     old_len = len(get_users())
     user = User("01", "Parth")
     add_user(user)
@@ -30,7 +30,7 @@ def test_add_user_with_duplicate_userId():
 # Test Cases for Adding Book
 
 def test_add_book():
-    """Adding a book should be successful"""
+    """Adding a book with all valid details should be successful"""
     old_len = len(get_books())
     book = Book("0001", "The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 1979)
     add_book(book)
@@ -66,7 +66,7 @@ def test_add_book_with_missing_publication_year():
 # Test Cases for Borrowing Book
 
 def test_borrow_book():
-    """Borrowing a book should be successful"""
+    """Borrowing a book with valid userId and ISBN should be successful"""
     books_list = get_books()
     assert borrow_book("01", "0001")
     assert not books_list[0].availability
@@ -99,7 +99,7 @@ def test_borrow_nonexistent_book():
 # Test Cases for returning Book
 
 def test_return_book():
-    """returning a book should be successful"""
+    """returning a book with valid userId and ISBN should be successful"""
     books_list = get_books()
     assert return_book("01", "0001")
     assert books_list[0].availability
@@ -132,6 +132,43 @@ def test_return_nonexistent_user():
 # Test Cases for Viewing available books
 
 def test_get_available_books():
+    """should return all avilable books"""
     available_books = view_books()
-    assert len(available_books) == 1
-    assert available_books[0].title == "The Hitchhiker's Guide to the Galaxy" 
+    old_len = len(available_books)
+    book = Book("0002", "Data Structure Using C", "Sharad Kumar Verma", 2015)
+    add_book(book)
+    available_books = view_books()
+    new_len = len(available_books)
+    assert new_len == old_len + 1
+
+# Test Cases for removing book
+
+def test_remove_book():
+    """removing a book with valid ISBN should be successful"""
+    assert remove_book("0001")
+
+def test_remove_book_without_ISBN():
+    """removing a book without ISBN should raise an error"""
+    with pytest.raises(ValueError):
+        remove_book("")
+
+def test_remove_book_wrong_ISBN():
+    """removing a book with wrong ISBN should raise an error"""
+    with pytest.raises(ValueError):
+        remove_book("9876")
+
+# Test Cases for removing user
+
+def test_remove_user():
+    """removing a user with valid userId should be successful"""
+    assert remove_user("01")
+
+def test_remove_user_without_userId():
+    """removing a user without userId should raise an error"""
+    with pytest.raises(ValueError):
+        remove_user("")
+
+def test_remove_user_wrong_userId():
+    """removing a user with wrong userId should raise an error"""
+    with pytest.raises(ValueError):
+        remove_user("98")

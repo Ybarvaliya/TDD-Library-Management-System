@@ -1,5 +1,13 @@
 # Library Management System
 
+## Contents
+
+- Objective
+- Requirements
+- How To Run
+- Different test cases implemented
+- Test Case Report and Coverage Report
+
 ## Objective
 
 Create a simple library management system that allows users to perform basic operations such as adding books, borrowing books, returning books, and viewing available books.
@@ -28,21 +36,21 @@ Create a simple library management system that allows users to perform basic ope
 
 1. fork / download the repo on your system
 2. naviagate to the folder in shell / cmd
-3. write command into shell / cmd "pip install pytest" (To install pytest - library in python for unit testing)
-4. write command into shell / cmd "pytest test_library.py" (It will start running tests)
+3. write command into shell / cmd "pip install pytest pytest -cov" (To install pytest - library in python for unit testing)
+4. write command into shell / cmd "pytest test_library.py -v" (It will start running tests)
 
 ## Test Cases
 
 ### Add User
 
-- Adding a User should be successful
+- Adding a User with all valid details should be successful
 - Adding a User with missing userId should raise an error
 - Adding a User with missing name should raise an error
 - Adding a User with duplicate userId should raise an error
 
 ### Add Book
 
-- Adding a Book should be successful
+- Adding a Book with all valid details should be successful
 - Adding a Book with missing ISBN should raise an error
 - Adding a Book with missing title should raise an error
 - Adding a Book with missing author should raise an error
@@ -51,7 +59,7 @@ Create a simple library management system that allows users to perform basic ope
 
 ### Borrow Book
 
-- Borrowing a Book should be successful
+- Borrowing a Book with valid ISBN and userId should be successful
 - Borrowing a Book with missing userId should raise an error
 - Borrowing a Book with missing ISBN should raise an error
 - Borrowing a Book that is not available should raise an error
@@ -60,7 +68,7 @@ Create a simple library management system that allows users to perform basic ope
 
 ### Return Book
 
-- Returning a Book should be successful
+- Returning a Book with valid ISBN and userId should be successful
 - Returning a Book with missing userId should raise an error
 - Returning a Book with missing ISBN should raise an error
 - Returning a Book that is not available should raise an error
@@ -70,3 +78,30 @@ Create a simple library management system that allows users to perform basic ope
 ### View Books
 
 - Viewing all available books should be successful
+
+### Remove Book
+
+- Removing a book with valid ISBN should be successful
+- Removing a book without ISBN should raise an error
+- Removing a book with invalid ISBN should raise an error
+
+### Remove User
+
+- Removing a user with valid userId should be successful
+- Removing a user without userId should raise an error
+- Removing a user with userId ISBN should raise an error
+
+## Reports
+
+### Test Case Report
+
+- to check yourself type "pytest test_library.py -v" into cmd
+- below are output screenshots of the same
+
+
+
+
+### Coverage Report
+
+- To view coverage report open "htmlcov" folder and into that folder open file named "index.html"
+- below are output screenshots of the same

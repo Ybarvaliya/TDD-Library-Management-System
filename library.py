@@ -116,7 +116,6 @@ def return_book(userId, ISBN):
                 if book.ISBN == ISBN:
                     book.availability = True
                     return True
-            raise ValueError("book with given ISBN does not exist in the books list")
         
     raise ValueError("User have not borrowed the book with given ISBN")
  
@@ -124,3 +123,29 @@ def view_books():
     """To view available books"""
     available_books = [book for book in books_list if book.availability]
     return available_books
+
+def remove_book(ISBN):
+    """TO remove book from the books list of library"""
+
+    if not ISBN or ISBN == "":
+        raise ValueError("userId must be provided")
+    
+    for b in books_list:
+        if b.ISBN == ISBN:
+            books_list.remove(b)
+            return True
+        
+    raise ValueError("Book with given ISBN not found")
+
+def remove_user(userId):
+    """TO remove user from the user list of library"""
+
+    if not userId or userId == "":
+        raise ValueError("userId must be provided")
+    
+    for u in users_list:
+        if u.userId == userId:
+            users_list.remove(u)
+            return True
+        
+    raise ValueError("User with given userId not found")
