@@ -1,12 +1,15 @@
 # Library Management System
 
-## Contents
+Here is my solution of Kata Library Mangement System using TDD (Test Driven Development)
 
-- Objective
-- Requirements
-- How To Run
-- Different test cases implemented
-- Test Case Report and Coverage Report
+## Table of Contents
+
+- [Objective](#objective)
+- [Requirements](#requirements)
+- [How To Run](#how-to-run)
+- [Different test cases implemented](#different-test-cases-implemented)
+- [Test Case Report and Coverage Report](#test-case-report-and-coverage-report)
+
 
 ## Objective
 
@@ -34,10 +37,30 @@ Create a simple library management system that allows users to perform basic ope
 
 ## How to Run
 
-1. fork / download the repo on your system
-2. naviagate to the folder in shell / cmd
-3. write command into shell / cmd "pip install pytest pytest -cov" (To install pytest - library in python for unit testing)
-4. write command into shell / cmd "pytest test_library.py -v" (It will start running tests)
+1. Open your terminal or command prompt.
+2. Run the following command to clone the repository:
+
+   ```bash
+   git clone https://github.com/Ybarvaliya/TDD-Library-Management-System.git
+   ```
+
+3. Navigate into the project directory:
+
+   ```bash
+   cd TDD-Library-Management-System
+   ```
+
+4. write command for the installations of Library
+
+    ```bash
+    pip install pytest pytest -cov
+    ```
+
+5. write below command to run Tests 
+
+    ```bash
+    pytest test_library.py -v
+    ```
 
 ## Test Cases
 
@@ -95,7 +118,12 @@ Create a simple library management system that allows users to perform basic ope
 
 ### Test Case Report
 
-- to check yourself type "pytest test_library.py -v" into cmd
+- To check yourself write commands
+    
+    ```bash
+    pytest test_library.py -v
+    ```
+
 - below are output screenshots of the same
 
 
