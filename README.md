@@ -99,9 +99,19 @@ Create a simple library management system that allows users to perform basic ope
 - below are output screenshots of the same
 
 
+![Screenshot 2024-09-01 100621](https://github.com/user-attachments/assets/4c31d1c8-12ce-4060-9423-d79c3899ed3b)
+![Screenshot 2024-09-01 100705](https://github.com/user-attachments/assets/9e8e025c-2bdb-42a7-a196-84f86a11a3cc)
 
 
 ### Coverage Report
 
 - To view coverage report open "htmlcov" folder and into that folder open file named "index.html"
 - below are output screenshots of the same
+
+![Screenshot 2024-09-01 101401](https://github.com/user-attachments/assets/c14a8065-e954-427f-b98d-4643d056d5fc)
+
+![Screenshot 2024-09-01 101407](https://github.com/user-attachments/assets/e237b78b-9a38-4e3c-90e6-c77c1872cbcd)
+
+![Screenshot 2024-09-01 101416](https://github.com/user-attachments/assets/f04f3f2d-3aa3-4178-ab80-5cdf052ea7d8)
+
+
