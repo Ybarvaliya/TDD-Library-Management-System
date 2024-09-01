@@ -7,6 +7,7 @@ Here is my solution of Kata Library Mangement System using TDD (Test Driven Deve
 - [Objective](#objective)
 - [Requirements](#requirements)
 - [How To Run](#how-to-run)
+- [Solution](#solution)
 - [Test Cases](#test-cases)
 - [Test Case Report and Coverage Report](#reports)
 
@@ -61,6 +62,27 @@ Create a simple library management system that allows users to perform basic ope
     ```bash
     pytest test_library.py -v
     ```
+
+## Solution
+
+### User Functionality
+
+- User can be added and removed from the library (if valid details are provided)
+- Each user has list of borrowed books
+
+### Book Functionality
+
+- Book can be added and removed from the library (if valid details are provided)
+
+- User can borrow the book (if valid details are provided)
+  - Book will be added to the user's borrowed book list
+  - Book will be made unavailable in the Book list of library
+
+- User can return the borrowed book (if valid details are provided)
+  - Book will be removed from the user's borrowed book list
+  - Book will be made available in the Book list of library
+
+- User can see all the available books in the library
 
 ## Test Cases
 
