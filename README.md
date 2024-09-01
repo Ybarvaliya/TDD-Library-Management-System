@@ -53,7 +53,7 @@ Create a simple library management system that allows users to perform basic ope
 4. write command for the installations of Library
 
     ```bash
-    pip install pytest pytest -cov
+    pip install pytest pytest-cov
     ```
 
 5. write below command to run Tests 
