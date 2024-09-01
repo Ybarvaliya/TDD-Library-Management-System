@@ -7,8 +7,8 @@ Here is my solution of Kata Library Mangement System using TDD (Test Driven Deve
 - [Objective](#objective)
 - [Requirements](#requirements)
 - [How To Run](#how-to-run)
-- [Different test cases implemented](#different-test-cases-implemented)
-- [Test Case Report and Coverage Report](#test-case-report-and-coverage-report)
+- [Test Cases](#test-cases)
+- [Test Case Report and Coverage Report](#reports)
 
 
 ## Objective
